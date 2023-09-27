@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html class="html-devise-layout" lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+<title>Sign in · GitLab</title>
+<script>
+//<![CDATA[
+window.gon={};
+//]]>
+</script>
+
+
+
+
+<link rel="stylesheet" href="/assets/themes/theme_indigo-cbf2cc35be098464be6de83fa55ce3c6d55904b86ae96b5d90b58c5ed67398be.css" />
+
+<link rel="stylesheet" href="/assets/application-b35365c3f2d60a068185eacd7e836e1f173c0c4eb3af308fd388f1b84db673b4.css" media="all" />
+<link rel="stylesheet" href="/assets/page_bundles/login-0429c38ed82db11a8cf7e207d37f45c351b0941709bd2adb958007126d0d7ed4.css" media="all" />
+<link rel="stylesheet" href="/assets/application_utilities-e77145525f157f955ee659a045c8699f51814ca7ef5cdd32c45a9bab7764f35b.css" media="all" />
+
+
+<link rel="stylesheet" href="/assets/fonts-171e1863d044918ea3bbaacf2a559ccaac603904aa851c3add5b714fa7066468.css" media="all" />
+<link rel="stylesheet" href="/assets/highlight/themes/white-798c2d2c1560fb1734a7653f984135b2ce22a62aa9b46f914905648669930db1.css" media="all" />
+
+
+<link rel="preload" href="/assets/application_utilities-e77145525f157f955ee659a045c8699f51814ca7ef5cdd32c45a9bab7764f35b.css" as="style" type="text/css">
+<link rel="preload" href="/assets/application-b35365c3f2d60a068185eacd7e836e1f173c0c4eb3af308fd388f1b84db673b4.css" as="style" type="text/css">
+<link rel="preload" href="/assets/highlight/themes/white-798c2d2c1560fb1734a7653f984135b2ce22a62aa9b46f914905648669930db1.css" as="style" type="text/css">
+
+
+
+
+
+
+
+
+<script src="/assets/webpack/runtime.5f5d5d87.bundle.js" defer="defer"></script>
+<script src="/assets/webpack/main.bd20404c.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.groups.new-pages.profiles-pages.profiles.accounts.show-pages.profiles.comment_template-99b0c0a5.f37e207f.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.admin.sessions-pages.sessions-pages.sessions.new.427b6a58.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.registrations.new-pages.sessions.new.aa5ffa64.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/pages.sessions.new.0ff9d55f.chunk.js" defer="defer"></script>
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="33RZVpsgVoCdvaFWgIzJwgHGVShEbiJHDZcl09K5wDMVIPF8Zze-UnyFtoqbl3n64QPc_ygm88rOhjab7VMZmA" />
+<meta name="csp-nonce" />
+<meta name="action-cable-url" content="/-/cable" />
+<link href="/-/manifest.json" rel="manifest">
+<link rel="icon" type="image/png" href="/assets/favicon-72a2cad5025aa931d6ea56c3201d1f18e68a8cd39788c7c80d5b2b82aa5143ef.png" id="favicon" data-original-href="/assets/favicon-72a2cad5025aa931d6ea56c3201d1f18e68a8cd39788c7c80d5b2b82aa5143ef.png" />
+<link rel="apple-touch-icon" type="image/x-icon" href="/assets/apple-touch-icon-b049d4bc0dd9626f31db825d61880737befc7835982586d015bded10b4435460.png" />
+<link href="/search/opensearch.xml" rel="search" title="Search GitLab" type="application/opensearchdescription+xml">
+
+
+
+
+<meta content="GitLab Community Edition" name="description">
+<meta content="#292961" name="theme-color">
+</head>
+
+<body class="gl-h-full login-page navless [] ui-indigo gl-browser-generic gl-platform-other" data-page="sessions:new" data-qa-selector="login_page">
+
+<script>
+//<![CDATA[
+gl = window.gl || {};
+gl.client = {"isGeneric":true,"isOther":true};
+
+
+//]]>
+</script>
+
+
+
+
+<div class="gl-h-full borderless gl-display-flex gl-flex-wrap">
+<div class="container">
+<div class="content">
+<div class="flash-container flash-container-page sticky" data-qa-selector="flash_container">
+<div class="gl-alert flash-alert gl-alert-danger" data-testid="alert-danger" role="alert">
+<svg class="s16 gl-alert-icon gl-alert-icon-no-title" data-testid="error-icon"><use href="/assets/icons-b25b55b72e1a86a9ca8055a5c421aae9b89fc86363fa02e2109034d756e56d28.svg#error"></use></svg>
+<button class="gl-button btn btn-icon btn-sm btn-default btn-default-tertiary js-close gl-dismiss-btn " aria-label="Dismiss" type="button"><svg class="s16 gl-icon gl-button-icon " data-testid="close-icon"><use href="/assets/icons-b25b55b72e1a86a9ca8055a5c421aae9b89fc86363fa02e2109034d756e56d28.svg#close"></use></svg>
+
+</button>
+<div class="gl-alert-content" role="alert">
+<div class="gl-alert-body">
+You need to sign in or sign up before continuing.
+</div>
+</div>
+</div>
+</div>
+
+<div class="mt-3">
+<div class="col-sm-12 gl-text-center">
+<img alt="GitLab Community Edition" class="gl-w-10 lazy" data-src="/assets/logo-911de323fa0def29aaf817fca33916653fc92f3ff31647ac41d2c39bbe243edb.svg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+<h1 class="mb-3 gl-font-size-h2">
+GitLab Community Edition
+</h1>
+</div>
+</div>
+<div class="mb-3">
+<div class="gl-w-half gl-xs-w-full gl-ml-auto gl-mr-auto bar">
+
+<div id="signin-container">
+<ul class="nav-links new-session-tabs nav-tabs nav custom-provider-tabs nav-links-unboxed">
+
+<li class="nav-item">
+<a class="nav-link active" data-toggle="tab" data-qa-selector="ldap_tab" data-testid="ldap-tab" role="tab" href="#ldapmain">LDAP LAAS</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" data-toggle="tab" data-qa-selector="standard_tab" role="tab" href="#login-pane">Standard</a>
+</li>
+</ul>
+
+<div class="tab-content">
+<div class="login-box tab-pane active" id="ldapmain" role="tabpanel">
+<div class="login-body">
+<form class="gl-p-5 gl-show-field-errors" aria-live="assertive" data-testid="new_ldap_user" action="/users/auth/ldapmain/callback" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="Wjcc6mYvgbcpOZRc2ovMLAp8JnmRmr7C8mwY62C7-GCQY7TAmjhpZcgBg4DBkHwU6rmvrv3Sb08xfQujX1Ehyw" autocomplete="off" /><div class="form-group">
+<label for="ldapmain_username">Username</label>
+<input name="username" autocomplete="username" class="form-control gl-form-input" title="This field is required." autofocus="autofocus" data-qa-selector="username_field" required="required" type="text" id="ldapmain_username" />
+</div>
+<div class="form-group">
+<label for="ldapmain_password">Password</label>
+<input class="form-control gl-form-input js-password" data-id="ldapmain_password" data-name="password" data-qa-selector="password_field">
+</div>
+<div class="gl-form-checkbox custom-control custom-checkbox">
+<input name="remember_me" type="hidden" value="0" autocomplete="off" /><input name="remember_me" autocomplete="off" class="custom-control-input" type="checkbox" value="1" id="ldapmain_remember_me" />
+<label class="custom-control-label" for="ldapmain_remember_me"><span>Remember me</span></label>
+</div>
+
+<button data-qa-selector="sign_in_button" type="submit" class="gl-button btn btn-block btn-md btn-confirm "><span class="gl-button-text">
+Sign in
+
+</span>
+
+</button></form>
+</div>
+</div>
+
+<div class="login-box tab-pane" id="login-pane" role="tabpanel">
+<div class="login-body">
+<form class="gl-p-5 gl-show-field-errors js-arkose-labs-form" id="new_user" aria-live="assertive" data-testid="sign-in-form" action="/users/sign_in" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="kcr-tFo7v7tPdpJ814oPeRIrMg3Jy0r42xTPqSCOfVFbnlaepixXaa5OhaDMkb9B8u672qWDm3UYBdzhH2Sk-g" autocomplete="off" /><div class="form-group">
+<label for="user_login">Username or email</label>
+<input class="form-control gl-form-input js-username-field" autocomplete="username" autofocus="autofocus" autocapitalize="off" autocorrect="off" required="required" title="This field is required." data-qa-selector="login_field" data-testid="username-field" type="text" name="user[login]" id="user_login" />
+</div>
+<div class="form-group">
+<label for="user_password">Password</label>
+<input class="form-control gl-form-input js-password" data-id="user_password" data-qa-selector="password_field" data-testid="password-field" data-name="user[password]" type="password" name="user[password]" id="user_password" />
+<div class="form-text gl-text-right">
+<a href="/users/password/new">Forgot your password?</a>
+</div>
+</div>
+<div class="form-group">
+</div>
+<div class="form-group">
+<div class="gl-form-checkbox custom-control custom-checkbox">
+<input name="user[remember_me]" type="hidden" value="0" autocomplete="off" /><input autocomplete="off" class="custom-control-input" type="checkbox" value="1" name="user[remember_me]" id="user_remember_me" />
+<label class="custom-control-label" for="user_remember_me"><span>Remember me</span></label>
+</div>
+
+</div>
+<button class="gl-button btn btn-block btn-md btn-confirm js-sign-in-button " data-qa-selector="sign_in_button" data-testid="sign-in-button" type="submit"><span class="gl-button-text">
+Sign in
+
+</span>
+
+</button></form>
+</div>
+</div>
+
+</div>
+<p class="gl-mt-3 gl-text-center">
+Don&#39;t have an account yet?
+<a data-qa-selector="register_link" href="/users/sign_up">Register now</a>
+</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div class="footer-container gl-w-full gl-align-self-end">
+<hr class="gl-m-0">
+<div class="container gl-py-5 gl-display-flex gl-justify-content-space-between">
+<div class="gl-display-flex gl-gap-5 gl-flex-wrap">
+<a href="/explore">Explore</a>
+<a href="/help">Help</a>
+<a href="https://about.gitlab.com">About GitLab</a>
+<a target="_blank" class="text-nowrap" rel="noopener noreferrer" href="https://forum.gitlab.com">Community forum</a>
+</div>
+<div class="js-language-switcher" data-locales="[{&quot;value&quot;:&quot;en&quot;,&quot;percentage&quot;:100,&quot;text&quot;:&quot;English&quot;},{&quot;value&quot;:&quot;zh_TW&quot;,&quot;percentage&quot;:99,&quot;text&quot;:&quot;繁體中文 (台灣)&quot;},{&quot;value&quot;:&quot;ja&quot;,&quot;percentage&quot;:99,&quot;text&quot;:&quot;日本語&quot;},{&quot;value&quot;:&quot;fr&quot;,&quot;percentage&quot;:99,&quot;text&quot;:&quot;français&quot;},{&quot;value&quot;:&quot;zh_CN&quot;,&quot;percentage&quot;:98,&quot;text&quot;:&quot;简体中文&quot;},{&quot;value&quot;:&quot;de&quot;,&quot;percentage&quot;:96,&quot;text&quot;:&quot;Deutsch&quot;}]"></div>
+
+</div>
+</div>
+
+
+</div>
+</body>
+</html>
