@@ -3,27 +3,27 @@ from django.db import models
 
 
 class Departement(models.Model):
-    departement_name = models.CharField(max_length=250)
+    departement = models.CharField(max_length=250)
     numero = models.IntegerField()
     prix_m2 = models.CharField(max_length=10)
 
     def __str__(self):
-        return self.departement_name
+        return f"{self.departement}{self.numero}"
 
 
 class Machine(models.Model):
-    nom_machine = models.CharField(max_length=250)
+    machine = models.CharField(max_length=250)
     prix = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.nom_machine
+        return f"{self.machine}{self.prix}"
 
 
 class Ingredient(models.Model):
-    nom_ingredient = models.CharField(max_length=250)
+    ingredient = models.CharField(max_length=250)
 
     def __str__(self):
-        return self.nom_ingredient
+        return f"{self.ingredient}"
 
 
 class QuantiteIngredient(models.Model):
@@ -31,7 +31,7 @@ class QuantiteIngredient(models.Model):
     ingredient = models.ForeignKey(Ingredient, on_delete=models.PROTECT)
 
     def __str__(self):
-        return self.quantite
+        return f"{self.ingredient}{self.quantite}"
 
 
 class Action(models.Model):
@@ -42,15 +42,15 @@ class Action(models.Model):
     action = models.CharField(max_length=250)
 
     def __str__(self):
-        return self.action
+        return f"{self.action}"
 
 
 class Recette(models.Model):
-    nom_recette = models.CharField(max_length=250)
+    recette = models.CharField(max_length=250)
     action = models.ForeignKey(Action, on_delete=models.PROTECT)
 
     def __str__(self):
-        return self.nom_recette
+        return f"{self.recette}"
 
 
 class Prix(models.Model):
@@ -59,7 +59,7 @@ class Prix(models.Model):
     prix = models.IntegerField()
 
     def __str__(self):
-        return self.ingredient
+        return f"{self.ingredient}{self.departement}{self.prix}"
 
 
 class Usine(models.Model):
@@ -72,4 +72,8 @@ class Usine(models.Model):
     stocks = models.ManyToManyField(QuantiteIngredient)
 
     def __str__(self):
-        return self.nom
+        return (
+            f"{self.departement}{self.taille}{self.machine}{self.recette}{self.stocks}"
+        )
+
+    # Création des objets pour chaque classe
