@@ -18,6 +18,9 @@ class Machine(models.Model):
     def __str__(self):
         return f"{self.machine}{self.prix}"
 
+    def costs(self):
+        return int(self.prix)
+
 
 class Ingredient(models.Model):
     ingredient = models.CharField(max_length=250)
@@ -32,6 +35,13 @@ class QuantiteIngredient(models.Model):
 
     def __str__(self):
         return f"{self.ingredient}{self.quantite}"
+
+    def costs(self, departement):
+        print(f"calcul du cout pour {self.quantite} {self.ingredient} {departement}")
+        return (
+            self.ingredient.prix_set.get(departement__numero=departement).prix
+            * self.quantite
+        )
 
 
 class Action(models.Model):
@@ -50,7 +60,7 @@ class Recette(models.Model):
     action = models.ForeignKey(Action, on_delete=models.PROTECT)
 
     def __str__(self):
-        return f"{self.recette}"
+        return f"{self.recette}{self.action}"
 
 
 class Prix(models.Model):
@@ -75,5 +85,15 @@ class Usine(models.Model):
         return (
             f"{self.departement}{self.taille}{self.machine}{self.recette}{self.stocks}"
         )
+
+    def costs(self):
+        total = 0
+        for m in self.machine.all():
+            total += m.costs()
+        stock_total = 0
+        for m in self.stocks.all():
+            stock_total += m.costs(self.departement.numero)
+
+        return self.taille * self.departement.prix_m2 + total + stock_total
 
     # Création des objets pour chaque classe
