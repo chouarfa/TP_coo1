@@ -24,12 +24,18 @@ class Machine(models.Model):
     def costs(self):
         return int(self.prix)
 
+    def json(self):
+        return {"machine": self.machine, "prix": float(self.prix_m2)}
+
 
 class Ingredient(models.Model):
     ingredient = models.CharField(max_length=250)
 
     def __str__(self):
         return f"{self.ingredient}"
+
+    def json(self):
+        return {"ingredient": self.ingredient}
 
 
 class QuantiteIngredient(models.Model):
@@ -68,6 +74,9 @@ class Recette(models.Model):
     def __str__(self):
         return f"{self.recette}{self.action}"
 
+    def json(self):
+        return {"recette": self.recette, "action": self.action.id}
+
 
 class Prix(models.Model):
     ingredient = models.ForeignKey(Ingredient, on_delete=models.PROTECT)
@@ -76,6 +85,13 @@ class Prix(models.Model):
 
     def __str__(self):
         return f"{self.ingredient}{self.departement}{self.prix}"
+
+    def json(self):
+        return {
+            "ingredient": self.ingredient.id,
+            "departement": self.departement.id,
+            "prix": self.prix,
+        }
 
 
 class Usine(models.Model):
