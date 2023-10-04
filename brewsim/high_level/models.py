@@ -11,7 +11,10 @@ class Departement(models.Model):
         return f"{self.departement}{self.numero}"
 
     def json(self):
-        return {"numero": self.numero, "prix_m2": float(self.prix_m2)}
+        return {
+            "numero": self.numero,
+            "prix_m2": float(self.prix_m2),
+        }
 
 
 class Machine(models.Model):
@@ -25,7 +28,10 @@ class Machine(models.Model):
         return int(self.prix)
 
     def json(self):
-        return {"machine": self.machine, "prix": float(self.prix_m2)}
+        return {
+            "machine": self.machine,
+            "prix": float(self.prix_m2),
+        }
 
 
 class Ingredient(models.Model):
@@ -53,7 +59,16 @@ class QuantiteIngredient(models.Model):
         )
 
     def json(self):
-        return {"ingredient": self.ingredient.id, "quantite": self.quantite}
+        return {
+            "ingredient": self.ingredient.id,
+            "quantite": self.quantite,
+        }
+
+    def json_extended(self):
+        return {
+            "ingredient": self.ingredient.json(),
+            "quantite": self.quantite,
+        }
 
 
 class Action(models.Model):
@@ -66,6 +81,20 @@ class Action(models.Model):
     def __str__(self):
         return f"{self.action}"
 
+    def json(self):
+        return {
+            "machine": self.recette.id,
+            "commande": self.commande,
+            "action": self.action.id,
+        }
+
+    def json_extended(self):
+        return {
+            "machine": self.recette.json(),
+            "commande": self.commande,
+            "action": self.action.json(),
+        }
+
 
 class Recette(models.Model):
     recette = models.CharField(max_length=250)
@@ -75,7 +104,16 @@ class Recette(models.Model):
         return f"{self.recette}{self.action}"
 
     def json(self):
-        return {"recette": self.recette, "action": self.action.id}
+        return {
+            "recette": self.recette,
+            "action": self.action.id,
+        }
+
+    def json_extended(self):
+        return {
+            "recette": self.recette,
+            "action": self.action.json(),
+        }
 
 
 class Prix(models.Model):
@@ -90,6 +128,13 @@ class Prix(models.Model):
         return {
             "ingredient": self.ingredient.id,
             "departement": self.departement.id,
+            "prix": self.prix,
+        }
+
+    def json_extended(self):
+        return {
+            "ingredient": self.ingredient.json(),
+            "departement": self.departement.json(),
             "prix": self.prix,
         }
 
@@ -123,4 +168,11 @@ class Usine(models.Model):
             "departement": self.departement.id,
             "taille": self.taille,
             "machine": [m.id for m in self.machine.all()],
+        }
+
+    def json_extended(self):
+        return {
+            "departement": self.departement.json(),
+            "taille": self.taille,
+            "machine": [m.json() for m in self.machine.all()],
         }

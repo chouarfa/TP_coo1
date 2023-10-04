@@ -17,56 +17,112 @@ from .models import (
 
 
 class DepartementDetailView(DetailView):
-    models = Departement
+    model = Departement
 
     def render_to_response(self, context, **response_kwargs):
-        return HttpResponse(dumps(self.objects.json()))
+        return HttpResponse(dumps(self.object.json()))
+
+
+class DepartementApiDetailView(DetailView):
+    model = Departement
+
+    def render_to_response(self, context, **response_kwargs):
+        return HttpResponse(dumps(self.object.json_extended()))
 
 
 class MachineDetailView(DetailView):
-    models = Machine
+    model = Machine
 
     def render_to_response(self, context, **response_kwargs):
-        return HttpResponse(dumps(self.objects.json()))
+        return HttpResponse(dumps(self.object.json()))
+
+
+class MachineApiDetailView(DetailView):
+    model = Machine
+
+    def render_to_response(self, context, **response_kwargs):
+        return HttpResponse(dumps(self.object.json_extended()))
 
 
 class ActionDetailView(DetailView):
-    models = Action
+    model = Action
 
     def render_to_response(self, context, **response_kwargs):
-        return HttpResponse(dumps(self.objects.json()))
+        return HttpResponse(dumps(self.object.json()))
+
+
+class ActionApiDetailView(DetailView):
+    model = Action
+
+    def render_to_response(self, context, **response_kwargs):
+        return HttpResponse(dumps(self.object.json_extended()))
 
 
 class RecetteDetailView(DetailView):
-    models = Recette
+    model = Recette
 
     def render_to_response(self, context, **response_kwargs):
-        return HttpResponse(dumps(self.objects.json()))
+        return HttpResponse(dumps(self.object.json()))
+
+
+class RecetteApiDetailView(DetailView):
+    model = Recette
+
+    def render_to_response(self, context, **response_kwargs):
+        return HttpResponse(dumps(self.object.json_extended()))
 
 
 class PrixDetailView(DetailView):
-    models = Prix
+    model = Prix
 
     def render_to_response(self, context, **response_kwargs):
-        return HttpResponse(dumps(self.objects.json()))
+        return HttpResponse(dumps(self.object.json()))
+
+
+class PrixApiDetailView(DetailView):
+    model = Prix
+
+    def render_to_response(self, context, **response_kwargs):
+        return HttpResponse(dumps(self.object.json_extended()))
 
 
 class IngredientDetailView(DetailView):
-    models = Ingredient
+    model = Ingredient
 
     def render_to_response(self, context, **response_kwargs):
-        return HttpResponse(dumps(self.objects.json()))
+        return HttpResponse(dumps(self.object.json()))
+
+
+class IngredientApiDetailView(DetailView):
+    model = Ingredient
+
+    def render_to_response(self, context, **response_kwargs):
+        return HttpResponse(dumps(self.object.json_extended()))
 
 
 class QuantiteIngredientDetailView(DetailView):
-    models = QuantiteIngredient
+    model = QuantiteIngredient
 
     def render_to_response(self, context, **response_kwargs):
-        return HttpResponse(dumps(self.objects.json()))
+        return HttpResponse(dumps(self.object.json()))
+
+
+class QuantiteIngredientApiDetailView(DetailView):
+    model = QuantiteIngredient
+
+    def render_to_response(self, context, **response_kwargs):
+        return HttpResponse(dumps(self.object.json_extended()))
 
 
 class UsineDetailView(DetailView):
-    models = Usine
+    model = Usine
 
     def render_to_response(self, context, **response_kwargs):
-        return HttpResponse(dumps(self.objects.json()))
+        return HttpResponse(dumps(self.object.json()))
+
+
+class UsineApiDetailView(DetailView):
+    model = Usine
+
+    def render_to_response(self, context, **response_kwargs):
+        return HttpResponse(dumps(self.object.json_extended()))
