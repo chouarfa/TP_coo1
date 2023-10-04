@@ -10,6 +10,9 @@ class Departement(models.Model):
     def __str__(self):
         return f"{self.departement}{self.numero}"
 
+    def json(self):
+        return {"numero": self.numero, "prix_m2": float(self.prix_m2)}
+
 
 class Machine(models.Model):
     machine = models.CharField(max_length=250)
@@ -42,6 +45,9 @@ class QuantiteIngredient(models.Model):
             self.ingredient.prix_set.get(departement__numero=departement).prix
             * self.quantite
         )
+
+    def json(self):
+        return {"ingredient": self.ingredient.id, "quantite": self.quantite}
 
 
 class Action(models.Model):
@@ -96,4 +102,9 @@ class Usine(models.Model):
 
         return self.taille * self.departement.prix_m2 + total + stock_total
 
-    # Création des objets pour chaque classe
+    def json(self):
+        return {
+            "departement": self.departement.id,
+            "taille": self.taille,
+            "machine": [m.id for m in self.machine.all()],
+        }
