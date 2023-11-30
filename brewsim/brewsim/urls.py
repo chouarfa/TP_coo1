@@ -25,6 +25,12 @@ urlpatterns = [
         views.DepartementDetailView.as_view(),
         name="departement",
     ),
+
+    path(
+        "departement/<int:pk>",
+        views.DepartementApiDetailView.as_view(),
+        name="departement",
+    ),
     path(
         "ingredient/<int:pk>",
         views.IngredientDetailView.as_view(),

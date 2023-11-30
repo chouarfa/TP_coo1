@@ -43,6 +43,9 @@ class Ingredient(models.Model):
     def json(self):
         return {"ingredient": self.ingredient}
 
+    def json_extended(self):
+        return {"ingredient": self.ingredient}
+
 
 class QuantiteIngredient(models.Model):
     quantite = models.IntegerField()
@@ -90,9 +93,9 @@ class Action(models.Model):
 
     def json_extended(self):
         return {
-            "machine": self.recette.json(),
+            "machine": self.machine.json(),
             "commande": self.commande,
-            "action": self.action.json(),
+            "action": self.action,
         }
 
 
